@@ -46,7 +46,7 @@ pipeline {
                 sh 'apk update'
                 sh 'apk add --no-cache git'
                 sh 'apk add --no-cache openssh'
-                sh 'git -v'
+                sh 'git --version'
             }
         }
 
