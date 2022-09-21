@@ -28,7 +28,13 @@ void setBuildStatus(String message, String state) {
 }
 
 pipeline {
-    agent { docker { image 'golang:1.18.6-alpine' } }
+    agent { 
+        docker { 
+            image 'golang:1.18.6-alpine' 
+            args '-u root:root'
+        } 
+    }
+
     environment {
         BRANCH_NAME = 'main'
     }
@@ -38,7 +44,9 @@ pipeline {
             steps {
                 sh 'go version'
                 sh 'apk update'
-                sh 'apk add git'
+                sh 'apk add --no-cache git'
+                sh 'apk add --no-cache openssh'
+                sh 'git -v'
             }
         }
 
