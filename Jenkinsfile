@@ -37,6 +37,8 @@ pipeline {
         stage('init') {
             steps {
                 sh 'go version'
+                sh 'apk update'
+                sh 'apk add git'
             }
         }
 
