@@ -28,7 +28,7 @@ void setBuildStatus(String message, String state) {
 }
 
 pipeline {
-    agent { docker { image 'golang:1.17.5-alpine' } }
+    agent { docker { image 'golang:1.18.6-alpine' } }
     environment {
         BRANCH_NAME = 'main'
     }
